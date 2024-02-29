@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .navbar {
+            overflow: hidden;
+            background-color: #1b5e20; /* Change the background color to a catchy color */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space items evenly along the main axis */
+            align-items: center; /* Center items vertically */
+            padding: 10px 20px; /* Add some padding for spacing */
+        }
+
+        .navbar-left {
+            flex: 1; /* Allow navbar to take remaining space */
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center items vertically */
+        }
+
+        .navbar-left img {
+            width: 40px; /* Adjust the width of the logo */
+            height: 40px; /* Set height to match width for a circular shape */
+            border-radius: 50%; /* Apply rounded corners to create a circular shape */
+            margin-right: 10px; /* Add some spacing between logo and text */
+        }
+
+        .navbar a {
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a#pet-paradise {
+            font-weight: bold; /* Make "Pet Paradise" bold */
+        }
+
+        .header {
+            color: red;
+            padding: 20px;
+        }
+
+        .sub-header {
+            color: green;
+        }
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="{% static 'images/logobaground.png' %}" alt="Logo"><!-- Reference the logo image correctly from the static directory -->
+            <a id="pet-paradise" href="{% url 'home' %}">Pet Paradise</a> <!-- Make "Pet Paradise" bold -->
+        </div>
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'cart' %}">Cart</a>
+        </div>
+    </div>
+
+    <div class="content">
+        {% block 'b1' %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

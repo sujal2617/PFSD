@@ -10,3 +10,9 @@ def aboutpage(request):
 def contactpage(request):
     return render(request, "contact.html")
 
+def loginpage(request):
+    return render(request, "login.html")
+
+def cartpage(request):
+    return render(request, "cart.html")
+
