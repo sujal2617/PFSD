@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def homepage(request):
-    return render(request, "index.html")
+    return render(request, "home.html")
 
 def aboutpage(request):
     return render(request, "about.html")
@@ -15,4 +15,8 @@ def loginpage(request):
 
 def cartpage(request):
     return render(request, "cart.html")
+
+def signuppage(request):
+    return render(request, "signup.html")
+
 

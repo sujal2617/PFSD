@@ -1,4 +1,25 @@
 {% extends 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 {% block 'b1' %}
-<h1>this is kart page</h1>
+<head>
+    <meta charset="UTF-8">
+</head>
+    <style>
+        body {
+                background-image: url('{% static "images/homebaground.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: 118%;
+                margin: 0;
+            }
+    </style>
+</html>
+
+    <h1>this is cart page</h1>
     {% endblock %}
+
+
+
+
+

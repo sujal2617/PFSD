@@ -2,35 +2,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Pet Paradise</title>
     <meta charset="UTF-8">
     <style>
         .navbar {
             overflow: hidden;
-            background-color: #1b5e20; /* Change the background color to a catchy color */
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space items evenly along the main axis */
-            align-items: center; /* Center items vertically */
-            padding: 10px 20px; /* Add some padding for spacing */
+            background: linear-gradient(to right, rgba(0, 200, 355, 1), rgba(20, 350, 355, 0.4)); /* Linear gradient from left to right */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
         }
 
         .navbar-left {
-            flex: 1; /* Allow navbar to take remaining space */
-            display: flex; /* Use flexbox for layout */
-            align-items: center; /* Center items vertically */
+            flex: 1;
+            display: flex;
+            align-items: center;
         }
 
         .navbar-left img {
-            width: 40px; /* Adjust the width of the logo */
-            height: 40px; /* Set height to match width for a circular shape */
-            border-radius: 50%; /* Apply rounded corners to create a circular shape */
-            margin-right: 10px; /* Add some spacing between logo and text */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
         }
 
         .navbar a {
-            color: white;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+        }
+
+        .navbar a#pet-paradise {
+            font-weight: bold;
+            font-size: 24px; /* Adjust font size to make it bigger */
+            color: white; /* Transparent shade */
+            font-family: cursive; /* Change the font family */
         }
 
         .navbar a:hover {
@@ -38,8 +45,28 @@
             color: black;
         }
 
-        .navbar a#pet-paradise {
-            font-weight: bold; /* Make "Pet Paradise" bold */
+        .navbar a.nav-link {
+            color: black; /* Make all other navbar links black */
+        }
+
+        .navbar a#home {
+            font-weight: bold;
+        }
+
+        .navbar a#about {
+            font-weight: bold;
+        }
+
+        .navbar a#contact {
+            font-weight: bold;
+        }
+
+        .navbar a#login {
+            font-weight: bold;
+        }
+
+        .navbar a#cart {
+            font-weight: bold;
         }
 
         .header {
@@ -60,14 +87,14 @@
     <div class="navbar">
         <div class="navbar-left">
             <img src="{% static 'images/logobaground.png' %}" alt="Logo"><!-- Reference the logo image correctly from the static directory -->
-            <a id="pet-paradise" href="{% url 'home' %}">Pet Paradise</a> <!-- Make "Pet Paradise" bold -->
+            <a id="pet-paradise" href="{% url 'home' %}">PET PARADISE</a> <!-- Make "Pet Paradise" bold -->
         </div>
         <div class="navbar-right">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'about' %}">About</a>
-            <a href="{% url 'contact' %}">Contact</a>
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'cart' %}">Cart</a>
+            <a id="home" href="{% url 'home' %}"><font color="BLACK">Home</font></a>
+            <a id="about" href="{% url 'about' %}"><font color="BLACK">About</font></a>
+            <a id="contact" href="{% url 'contact' %}"><font color="BLACK">Contact</font></a>
+            <a id="login" href="{% url 'login' %}"><font color="BLACK">Login</font></a>
+            <a id="cart" href="{% url 'cart' %}"><font color="BLACK">Cart</font></a>
         </div>
     </div>
 
@@ -75,6 +102,5 @@
         {% block 'b1' %}
         {% endblock %}
     </div>
-
 </body>
 </html>

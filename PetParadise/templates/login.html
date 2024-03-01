@@ -1,4 +1,54 @@
 {% extends 'navbar.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
 {% block 'b1' %}
-<h1>this is login page</h1>
-    {% endblock %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<style>
+    body {
+        background-image: url('{% static "images/BG4.jpg" %}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: left;
+        color: red;
+        opacity: 0.7; /* Adjust the opacity value as needed */
+        margin-left: 20px; /* Adjust margin */
+    }
+    table {
+        margin-left: 20px; /* Adjust margin */
+    }
+    p {
+        text-align: left;
+        margin-left: 20px; /* Adjust margin */
+    }
+</style>
+</html>
+<br><br>
+<h1>WELCOME TO THE LOGIN PAGE</h1>
+<br><br><br><br>
+<table border="3">
+    <tr>
+        <td><label>Enter Username</label></td>
+        <td><input type="text" name="uname" required/></td>
+    </tr>
+    <tr>
+        <td><label>Enter Password</label></td>
+        <td><input type="password" name="pwd" required/></td>
+    </tr>
+</table>
+<br>
+<table>
+    <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't have an account? <a href="/signup">Sign Up</a></p>
+{% endblock %}

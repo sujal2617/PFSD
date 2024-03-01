@@ -1,0 +1,75 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block 'b1' %}
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-image: url('{% static "images/BG4.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: left;
+            color: red;
+            opacity: 0.7; /* Adjust the opacity value as needed */
+            margin-left: 20px; /* Add a left margin */
+        }
+        form {
+            margin-left: 20px; /* Add a left margin */
+        }
+        table {
+            margin-left: 20px; /* Add a left margin */
+        }
+        p {
+            text-align: left;
+            margin-left: 20px; /* Add a left margin */
+        }
+    </style>
+</head>
+</html>
+<br><br>
+<h1>WELCOME TO THE SIGN UP PAGE</h1>
+<br><br><br><br>
+<form action="" method="post">
+    <table border="3">
+        <tr>
+            <td><label>Enter Your Name</label></td>
+            <td><input type="text" name="uname" required/></td>
+        </tr>
+        <tr>
+            <td><label>Phone No.</label></td>
+            <td><input type="text" name="uname" required/></td>
+        </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td><input type="text" name="uname" required/></td>
+        </tr>
+        <tr>
+            <td><label>Enter Username</label></td>
+            <td><input type="text" name="uname" required/></td>
+        </tr>
+        <tr>
+            <td><label>Enter Password</label></td>
+            <td><input type="password" name="pwd" required/></td>
+        </tr>
+        <tr>
+            <td><label>Confirm Password</label></td>
+            <td><input type="password" name="confirm_pwd" required/></td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Sign Up">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear"></td>
+        </tr>
+    </table>
+</form>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Already have an account? <a href="/login">Login</a></p>
+{% endblock %}
