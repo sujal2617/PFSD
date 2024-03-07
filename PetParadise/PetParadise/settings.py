@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'adminapp',
 ]
 
 MIDDLEWARE = [
@@ -74,9 +75,14 @@ WSGI_APPLICATION = 'PetParadise.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'PetParadise',  # Name of the database
+        'USER': 'postgres',
+        'PASSWORD': 'sujal@123A',
+        'HOST': 'localhost',  # localhost means local server
+        'PORT': '5432',
     }
+
 }
 
 

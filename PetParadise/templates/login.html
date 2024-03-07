@@ -33,6 +33,8 @@
 <br><br>
 <h1>WELCOME TO THE LOGIN PAGE</h1>
 <br><br><br><br>
+<form method="post" action="{% url 'checklogin' %}">
+        {% csrf_token %}
 <table border="3">
     <tr>
         <td><label>Enter Username</label></td>
@@ -50,5 +52,10 @@
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     </tr>
 </table>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't have an account? <a href="/signup">Sign Up</a></p>
+<div>
+    {% for i in messages %}
+    <h4 align="center"><font color="red">{{i}}</font></h4>
+    {% endfor %}
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't have an account? <a href="/signup    ">SignUp</a></p>
 {% endblock %}

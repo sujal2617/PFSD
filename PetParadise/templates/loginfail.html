@@ -1,0 +1,26 @@
+{% extends 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block 'b1' %}
+<head>
+    <meta charset="UTF-8">
+</head>
+    <style>
+        body {
+                background-image: url('{% static "images/homebaground.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: 118%;
+                margin: 0;
+            }
+    </style>
+</html>
+
+    <h1>i am sorry to say but</h1>
+    <h1>your login is fail</h1>
+<div>
+    {% for i in messages %}
+    <h4 align="left"><font color="red">{{i}}</font></h4>
+    {% endfor %}
+</div>
+    {% endblock %}

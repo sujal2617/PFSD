@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pet Paradise</title>
+    <meta charset="UTF-8">
+    <style>
+         body {
+                background-image: url('{% static "images/homebaground.jpg" %}');
+                background-repeat: no-repeat;
+                background-size: 118%;
+                margin: 0;
+            }
+        .navbar {
+            overflow: hidden;
+            background: linear-gradient(to right, rgba(0, 200, 355, 1), rgba(20, 350, 355, 0.4)); /* Linear gradient from left to right */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+        }
+
+        .navbar-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .navbar a {
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a#pet-paradise {
+            font-weight: bold;
+            font-size: 24px; /* Adjust font size to make it bigger */
+            color: white; /* Transparent shade */
+            font-family: cursive; /* Change the font family */
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.nav-link {
+            color: black; /* Make all other navbar links black */
+        }
+
+        .navbar a#home {
+            font-weight: bold;
+        }
+
+        .navbar a#about {
+            font-weight: bold;
+        }
+
+        .navbar a#contact {
+            font-weight: bold;
+        }
+
+        .navbar a#login {
+            font-weight: bold;
+        }
+
+        .navbar a#cart {
+            font-weight: bold;
+        }
+
+        .header {
+            color: red;
+            padding: 20px;
+        }
+
+        .sub-header {
+            color: green;
+        }
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="{% static 'images/logobaground.png' %}" alt="Logo"><!-- Reference the logo image correctly from the static directory -->
+            <a id="pet-paradise" href="{% url 'home' %}">PET PARADISE</a> <!-- Make "Pet Paradise" bold -->
+        </div>
+        <div class="navbar-right">
+            <a id="home" href="{% url 'home' %}"><font color="BLACK">Home</font></a>
+            <a id="about" href="{% url 'about' %}"><font color="BLACK">About</font></a>
+            <a id="contact" href="{% url 'contact' %}"><font color="BLACK">Contact</font></a>
+            <a id="login" href="{% url 'login' %}"><font color="BLACK">Login</font></a>
+            <a id="cart" href="{% url 'cart' %}"><font color="BLACK">Cart</font></a>
+        </div>
+    </div>
+
+    <div class="content">
+        {% block 'b1' %}
+        <h2 align="center"> <font color="green">WELCOME To PET PARADISE</font></h2>
+<div>
+    {% for i in messages %}
+    <h4 align="center"><font color="red">{{i}}</font></h4>
+    {% endfor %}
+</div>
+        {% endblock %}
+    </div>
+</body>
+</html>

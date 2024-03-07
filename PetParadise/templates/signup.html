@@ -36,19 +36,20 @@
 <br><br>
 <h1>WELCOME TO THE SIGN UP PAGE</h1>
 <br><br><br><br>
-<form action="" method="post">
+<form method="POST" action="{% url 'checksignup' %}" >
+    {% csrf_token %}
     <table border="3">
         <tr>
             <td><label>Enter Your Name</label></td>
-            <td><input type="text" name="uname" required/></td>
+            <td><input type="text" name="name" required/></td>
         </tr>
         <tr>
             <td><label>Phone No.</label></td>
-            <td><input type="text" name="uname" required/></td>
+            <td><input type="text" name="phno" required/></td>
         </tr>
         <tr>
             <td><label>Email</label></td>
-            <td><input type="text" name="uname" required/></td>
+            <td><input type="text" name="email" required/></td>
         </tr>
         <tr>
             <td><label>Enter Username</label></td>
@@ -60,7 +61,7 @@
         </tr>
         <tr>
             <td><label>Confirm Password</label></td>
-            <td><input type="password" name="confirm_pwd" required/></td>
+            <td><input type="password" name="cpwd" required/></td>
         </tr>
     </table>
     <br>
@@ -71,5 +72,10 @@
         </tr>
     </table>
 </form>
+<div>
+    {% for i in messages %}
+    <h4 align="center"><font color="red">{{i}}</font></h4>
+    {% endfor %}
+</div>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Already have an account? <a href="/login">Login</a></p>
 {% endblock %}

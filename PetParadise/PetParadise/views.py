@@ -19,4 +19,6 @@ def cartpage(request):
 def signuppage(request):
     return render(request, "signup.html")
 
+def loginfailpage(request):
+    return render(request, "loginfail.html")
 
