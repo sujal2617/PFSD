@@ -1,0 +1,80 @@
+{% extends 'loginnavbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block 'b1' %}
+<head>
+    <meta charset="UTF-8">
+</head>
+    <style>
+        body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f2f2f2;
+<!--                background-image: url('{% static "images/BG5.jpg" %}');-->
+<!--                background-repeat: no-repeat;-->
+<!--                background-size: 100%;-->
+                margin: 0;
+            }
+         .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  .options {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .option {
+    margin: 0 20px;
+    padding: 20px 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+    </style>
+<body>
+
+<div class="container"><br><br><br><br>
+  <h1 colour="black">SELECT TO SHOP FROM</h1>
+  <div class="options">
+    <div class="option" onclick="showPets()">
+      <h2>Pets</h2>
+      <p>Find your perfect pet companion</p>
+    </div>
+    <div class="option" onclick="showAccessories()">
+      <h2>Accessories</h2>
+      <p>Discover a wide range of accessories for your pets</p>
+    </div>
+  </div>
+</div>
+<script>
+  function showPets() {
+    window.location.href = "pets";
+  }
+  function showAccessories() {
+    window.location.href = "accessories";
+  }
+</script>
+</body>
+</html>
+    {% endblock %}
+
+
+
+
+

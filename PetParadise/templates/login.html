@@ -32,7 +32,7 @@
 </html>
 <br><br>
 <h1>WELCOME TO THE LOGIN PAGE</h1>
-<br><br><br><br>
+<br><br>
 <form method="post" action="{% url 'checklogin' %}">
         {% csrf_token %}
 <table border="3">
@@ -57,5 +57,5 @@
     <h4 align="center"><font color="red">{{i}}</font></h4>
     {% endfor %}
 </div>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't have an account? <a href="/signup    ">SignUp</a></p>
-{% endblock %}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don't have an account? <a href="/signup">SignUp</a></p>
+    {% endblock %}

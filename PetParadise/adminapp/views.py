@@ -32,7 +32,6 @@ def checklogin(request):
     if request.method == "POST":
         name = request.POST["uname"]  # gets user name
         pwdd = request.POST["pwd"]
-        # flag = Admin.objects.filter(username=adminuname, password=adminpwd).values()
         flag = signup.objects.filter(username=name, password=pwdd).values()
         if flag:  # flag is not empty
             if name == "sujal2624":  # here "sujal2624" is admin
@@ -45,3 +44,19 @@ def checklogin(request):
         else:
             messages.info(request, "Your credentials are not correct")
             return render(request, "loginfail.html")
+
+
+def checkchangepassword(request):
+    if request.method == "POST":
+        uname = request.POST["uname"]
+        opwd = request.POST["opwd"]
+        npwd = request.POST["npwd"]
+        flag = signup.objects.filter(username=uname, password=opwd).values()
+        if flag:
+            signup.objects.filter(username=uname, password=opwd).update(password=npwd)
+            messages.info(request, "Password updated successfully")
+            return render(request, "login.html")
+        else:
+            return render(request, "changepassword.html")
+    else:
+        return render(request, "changepassword.html")
