@@ -35,6 +35,7 @@ urlpatterns = [
     path("inventory", views.inventorypage, name="inventory"),
     path("pets", views.petspage, name="pets"),
     path("accessories", views.accessoriespage, name="accessories"),
+    path("feedback", views.feedbackpage, name="feedback"),
     path("", include("adminapp.urls")),
 
 ]

@@ -1,11 +1,187 @@
 {% extends 'loginnavbar.html' %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+{% block 'b1' %}
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Pet Shop - Accessories</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        /* Additional CSS for image size */
+        .accessory img {
+            width: 200px; /* Adjust the width as needed */
+            height: 200px; /* Adjust the height as needed */
+            object-fit: cover; /* Maintain aspect ratio and cover the specified dimensions */
+        }
+
+        /* CSS for displaying accessories side by side */
+        .accessories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .accessory {
+            width: 30%; /* Adjust the width as needed */
+            margin-bottom: 20px;
+        }
+
+        .cart-item img {
+            width: 50px; /* Fixed width for cart item images */
+            height: 50px; /* Fixed height for cart item images */
+            object-fit: cover; /* Maintain aspect ratio and cover the specified dimensions */
+            margin-right: 10px;
+        }
+
+        .cart-item {
+            display: inline-block; /* Display items side by side */
+            margin-right: 20px; /* Adjust spacing between items */
+        }
+
+        .cart-total {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Accessories for Pets</h1>
+        <div class="accessories">
+            <div class="accessory">
+                <img src="{% static 'images/acc1.jpg' %}" alt="Accessory 1">
+                <h3>Accessory-1</h3>
+                <p>Description: A stylish accessory for your pet!</p>
+                <p>Cost: $10</p>
+                <button onclick="addToCart('acc1', 10)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc2.jpg' %}" alt="Accessory 2">
+                <h3>Accessory-2</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $15</p>
+                <button onclick="addToCart('acc2', 15)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc3.jpg' %}" alt="Accessory 3">
+                <h3>Accessory-3</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $20</p>
+                <button onclick="addToCart('acc3', 20)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc4.jpg' %}" alt="Accessory 4">
+                <h3>Accessory-4</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $15</p>
+                <button onclick="addToCart('acc4', 15)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc5.jpg' %}" alt="Accessory 5">
+                <h3>Accessory-5</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $35</p>
+                <button onclick="addToCart('acc5', 35)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc6.jpg' %}" alt="Accessory 6">
+                <h3>Accessory-6</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $15</p>
+                <button onclick="addToCart('acc6', 15)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc7.jpg' %}" alt="Accessory 7">
+                <h3>Accessory-7</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $10</p>
+                <button onclick="addToCart('acc7', 10)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc8.jpg' %}" alt="Accessory 8">
+                <h3>Accessory-8</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $15</p>
+                <button onclick="addToCart('acc8', 15)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc9.jpg' %}" alt="Accessory 9">
+                <h3>Accessory-9</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $15</p>
+                <button onclick="addToCart('acc9', 15)">Add to Cart</button>
+            </div>
+            <div class="accessory">
+                <img src="{% static 'images/acc10.jpg' %}" alt="Accessory 10">
+                <h3>Accessory-10</h3>
+                <p>Description: Another great accessory for your pet!</p>
+                <p>Cost: $45</p>
+                <button onclick="addToCart('acc10', 45)">Add to Cart</button>
+            </div>
+            <!-- Add more accessories here -->
+        </div>
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <div class="cart-total" id="cart-total">Total: $0</div>
+            <button onclick="clearCart()">Clear Cart</button><br><br>
+            <button onclick="checkout()">Checkout</button>
+        </div>
+    </div>
 
+    <script>
+        let cartItems = [];
+        let totalCost = 0;
+
+        function addToCart(itemName, itemCost) {
+            cartItems.push({ name: itemName, cost: itemCost });
+            totalCost += itemCost;
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            totalCost -= cartItems[index].cost;
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsElement = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+
+            cartItemsElement.innerHTML = '';
+            cartItems.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <img src="{% static 'images/' %}${item.name.toLowerCase().replace(' ', '_')}.jpg" alt="${item.name}">
+                    <div>
+                        <span>${item.name}</span>
+                        <span>$${item.cost}</span>
+                    </div>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsElement.appendChild(itemElement);
+            });
+
+            cartTotalElement.textContent = `Total: $${totalCost}`;
+        }
+
+        function clearCart() {
+            cartItems = [];
+            totalCost = 0;
+            updateCart();
+        }
+
+        function checkout() {
+            // Implement checkout logic here
+            alert('Checkout clicked! Total amount: $' + totalCost);
+            cartItems = [];
+            totalCost = 0;
+            updateCart();
+        }
+    </script>
 </body>
 </html>
+{% endblock %}

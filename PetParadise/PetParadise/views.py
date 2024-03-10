@@ -39,3 +39,6 @@ def petspage(request):
 
 def accessoriespage(request):
     return render(request, "accessories.html")
+
+def feedbackpage(request):
+    return render(request, "feedback.html")

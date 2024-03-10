@@ -77,6 +77,11 @@
             font-weight: bold;
         }
 
+        .navbar a#feedback {
+            font-weight: bold;
+        }
+
+
         .header {
             color: red;
             padding: 20px;
@@ -101,8 +106,9 @@
             <a id="home" href="{% url 'loginhome' %}"><font color="BLACK">Home</font></a>
             <a id="about" href="{% url 'loginabout' %}"><font color="BLACK">About</font></a>
             <a id="contact" href="{% url 'logincontact' %}"><font color="BLACK">Contact</font></a>
-            <a id="password" href="{% url 'checkchangepassword' %}"><font color="BLACK">Change Password</font></a>
-            <a id="cart" href="{% url 'cart' %}"><font color="BLACK">Cart</font></a>
+            <a id="password" href="{% url 'logincheckchangepassword' %}"><font color="BLACK">Change Password</font></a>
+<!--            <a id="cart" href="{% url 'cart' %}"><font color="BLACK">Cart</font></a>-->
+            <a id="feedback" href="{% url 'feedback' %}"><font color="BLACK">Customer Feedback</font></a>
             <a id="logout" href="{% url 'logout' %}"><font color="BLACK">Logout</font></a>
         </div>
     </div>

@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <style>
          body {
-
                 background-image: url('{% static "images/homebaground.jpg" %}');
                 background-repeat: no-repeat;
                 background-size: 118%;
@@ -60,31 +59,11 @@
             font-weight: bold;
         }
 
-        .navbar a#about {
-            font-weight: bold;
-        }
-
-        .navbar a#contact {
-            font-weight: bold;
-        }
-
-        .navbar a#login {
-            font-weight: bold;
-        }
-
-        .navbar a#cart {
-            font-weight: bold;
-        }
-
         .navbar a#logout {
             font-weight: bold;
         }
 
         .navbar a#password {
-            font-weight: bold;
-        }
-
-        .navbar a#feedback {
             font-weight: bold;
         }
 
@@ -109,25 +88,12 @@
             <a id="pet-paradise" href="{% url 'home' %}">PET PARADISE</a> <!-- Make "Pet Paradise" bold -->
         </div>
         <div class="navbar-right">
-            <a id="home" href="{% url 'loginhome' %}"><font color="BLACK">Home</font></a>
-            <a id="about" href="{% url 'loginabout' %}"><font color="BLACK">About</font></a>
-            <a id="contact" href="{% url 'logincontact' %}"><font color="BLACK">Contact</font></a>
-            <a id="password" href="{% url 'logincheckchangepassword' %}"><font color="BLACK">Change Password</font></a>
-<!--            <a id="cart" href="{% url 'cart' %}"><font color="BLACK">Cart</font></a>-->
-            <a id="feedback" href="{% url 'feedback' %}"><font color="BLACK">Customer Feedback</font></a>
+            <a id="home" href="{% url 'inventory' %}"><font color="BLACK">Inventory Management</font></a>
+            <a id="password" href="{% url 'loginadmincheckchangepassword' %}"><font color="BLACK">Change Password</font></a>
             <a id="logout" href="{% url 'logout' %}"><font color="BLACK">Logout</font></a>
         </div>
     </div>
-
-    <div class="content">
-        {% block 'b1' %}
-<br><br><h1 align="center"> <font color="brown">WELCOME To PET PARADISE</font></h1><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div>
-    {% for i in messages %}
-    <h2 align="center"><font color="red">{{i}}</font></h2>
-    {% endfor %}
-</div>
-        {% endblock %}
-    </div>
 </body>
 </html>
+{% block 'b1' %}
+{% endblock %}

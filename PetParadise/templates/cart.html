@@ -1,25 +1,104 @@
 {% extends 'loginnavbar.html' %}
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 {% block 'b1' %}
 <head>
     <meta charset="UTF-8">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <style>
-        body {
-                background-image: url('{% static "images/homebaground.jpg" %}');
-                background-repeat: no-repeat;
-                background-size: 118%;
-                margin: 0;
-            }
+        /* Additional CSS for image size */
+        .cart-item img {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            object-fit: cover; /* Maintain aspect ratio and cover the specified dimensions */
+            margin-right: 10px;
+        }
+
+        .cart-item {
+            display: inline-block; /* Display items side by side */
+            margin-right: 20px; /* Adjust spacing between items */
+        }
     </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+        <div id="cart-items"></div><br><br>
+        <div class="cart-total" id="cart-total">Total:  $0</div>
+        <button onclick="clearCart()">Clear Cart</button><br><br>
+        <button onclick="checkout()">Checkout</button> <!-- Checkout button -->
+    </div>
+    <script>
+        let cartItems = [];
+        let totalCost = 0;
+
+        function addToCart(itemName, itemCost) {
+    cartItems.push({ name: itemName, cost: itemCost });
+    totalCost += itemCost;
+    updateCart();
+
+    // Make an AJAX request to add the item to the cart in the backend
+    fetch(`/addtocart/${itemName}/${itemCost}/`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to add item to cart');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Handle successful response if needed
+        })
+        .catch(error => {
+            console.error('Error adding item to cart:', error);
+            // Handle error if needed
+        });
+}
+
+        function removeFromCart(index) {
+            totalCost -= cartItems[index].cost;
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsElement = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+
+            cartItemsElement.innerHTML = '';
+            cartItems.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <img src="{% static 'images/' %}${item.name.toLowerCase().replace(' ', '_')}.png" alt="${item.name}">
+                    <div>
+                        <span>${item.name}</span>
+                        <span>$${item.cost}</span>
+                    </div>
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsElement.appendChild(itemElement);
+            });
+
+            cartTotalElement.textContent = `Total: $${totalCost}`;
+        }
+
+        function clearCart() {
+            cartItems = [];
+            totalCost = 0;
+            updateCart();
+        }
+
+        function checkout() {
+            // Implement checkout functionality here
+            alert("Thank you for your purchase!");
+            cartItems = [];
+            totalCost = 0;
+            updateCart();
+        }
+    </script>
+</body>
 </html>
-
-    <h1>this is cart page</h1>
-    {% endblock %}
-
-
-
-
-
+{% endblock %}

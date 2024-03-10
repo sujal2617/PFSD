@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import signup
+from .models import signup,cartitem
 
 
 def checksignup(request):
@@ -60,3 +60,39 @@ def checkchangepassword(request):
             return render(request, "changepassword.html")
     else:
         return render(request, "changepassword.html")
+
+def logincheckchangepassword(request):
+    if request.method == "POST":
+        uname = request.POST["uname"]
+        opwd = request.POST["opwd"]
+        npwd = request.POST["npwd"]
+        flag = signup.objects.filter(username=uname, password=opwd).values()
+        if flag:
+            signup.objects.filter(username=uname, password=opwd).update(password=npwd)
+            messages.info(request, "Password updated successfully")
+            return render(request, "login.html")
+        else:
+            return render(request, "loginchangepassword.html")
+    else:
+        return render(request, "loginchangepassword.html")
+
+
+def loginadmincheckchangepassword(request):
+    if request.method == "POST":
+        uname = request.POST["uname"]
+        opwd = request.POST["opwd"]
+        npwd = request.POST["npwd"]
+        flag = signup.objects.filter(username=uname, password=opwd).values()
+        if flag:
+            signup.objects.filter(username=uname, password=opwd).update(password=npwd)
+            messages.info(request, "Password updated successfully")
+            return render(request, "login.html")
+        else:
+            return render(request, "loginadminchangepassword.html")
+    else:
+        return render(request, "loginadminchangepassword.html")
+
+def addtocart(request, item_name, item_cost):
+    cart_item = cartitem(name=item_name, cost=item_cost)
+    cart_item.save()
+    return redirect('cart')  # Redirect to the cart page after adding to cart

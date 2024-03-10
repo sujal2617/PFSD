@@ -49,6 +49,10 @@
             color: black; /* Make all other navbar links black */
         }
 
+        .navbar a#password {
+            font-weight: bold;
+        }
+
         .navbar a#home {
             font-weight: bold;
         }
@@ -85,6 +89,7 @@
             <a id="home" href="{% url 'home' %}"><font color="BLACK">Home</font></a>
             <a id="contact" href="{% url 'contact' %}"><font color="BLACK">Contact</font></a>
             <a id="login" href="{% url 'login' %}"><font color="BLACK">Login</font></a>
+            <a id="password" href="{% url 'checkchangepassword' %}"><font color="BLACK">Change Password</font></a>
         </div>
     </div>
 
