@@ -36,7 +36,7 @@ def checklogin(request):
         if flag:  # flag is not empty
             if name == "sujal2624":  # here "sujal2624" is admin
                 messages.info(request,
-                              "This is Admin's page")  # to send message to the next page
+                              "This is Admin's page")# to send message to the next page
                 return render(request, "adminhome.html")
         if flag:
             messages.info(request, "This is User's page")

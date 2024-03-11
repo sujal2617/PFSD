@@ -8,4 +8,5 @@ urlpatterns=[
     path("logincheckchangepassword",views.logincheckchangepassword,name="logincheckchangepassword"),
     path("loginadmincheckchangepassword",views.loginadmincheckchangepassword,name="loginadmincheckchangepassword"),
     path('addtocart/<str:item_name>/<int:item_cost>/', views.addtocart, name='addtocart'),
+
 ]

@@ -38,4 +38,5 @@ urlpatterns = [
     path("feedback", views.feedbackpage, name="feedback"),
     path("", include("adminapp.urls")),
 
+
 ]
