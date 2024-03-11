@@ -1,7 +1,7 @@
 /PetParadise/settings.py
 my-connector.py
 # Byte-compiled / optimized / DLL files
-__pycache__/
+/PetParadise/__pycache__/
 *.py[cod]
 *$py.class
 
