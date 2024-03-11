@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-!f0je#0hqij904fp55dz#2+0)3&a57th-)2w$_h9=9lf=3db!9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sujalpattewar.pythonanywhere.com']
 
 
 # Application definition
@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'PetParadise.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PetParadise',
-        'USER': 'root',
+        'NAME': 'sujalpattewar$PetParadise',
+        'USER': 'sujalpattewar',
         'PASSWORD': 'sujal@123A',
-        'HOST': 'localhost',  # or the hostname where your MySQL server is running
+        'HOST': 'sujalpattewar.mysql.pythonanywhere-services.com',  # or the hostname where your MySQL server is running
         'PORT': '3306',      # or the port on which your MySQL server is listening
     }
 }
@@ -132,8 +132,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+     '/home/sujalpattewar/PFSD/PetParadise/static',
     ]
+STATIC_ROOT = '/home/sujalpattewar/PetParadise/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

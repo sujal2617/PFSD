@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def homepage(request):
-    return render(request, "home.html")
+    return render(request, "home.html", {'imgLink': request.get_host()})
 
 def loginaboutpage(request):
     return render(request, "loginabout.html")
