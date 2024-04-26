@@ -18,11 +18,3 @@ class cartitem(models.Model):
 
     class Meta:
         db_table = "cart_table"
-
-
-
-
-
-
-
-qwertyhujhygfdasQWERTHFGDVZCSAWERTHYGCFDEAWEGFB
