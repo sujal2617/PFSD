@@ -12,10 +12,17 @@ class signup(models.Model):
     class Meta:
         db_table = "signup_table"
 
-
 class cartitem(models.Model):
     name = models.CharField(max_length=100, blank=False, unique=True)
     cost = models.CharField(max_length=10)
 
     class Meta:
         db_table = "cart_table"
+
+
+
+
+
+
+
+qwertyhujhygfdasQWERTHFGDVZCSAWERTHYGCFDEAWEGFB
