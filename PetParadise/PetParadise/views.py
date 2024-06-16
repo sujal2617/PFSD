@@ -42,3 +42,6 @@ def accessoriespage(request):
 
 def feedbackpage(request):
     return render(request, "feedback.html")
+
+def feedbackpagesave(request):
+    return render(request, "feedbacksave.html")

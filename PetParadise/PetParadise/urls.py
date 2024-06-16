@@ -40,6 +40,7 @@ urlpatterns = [
     path("pets", views.petspage, name="pets"),
     path("accessories", views.accessoriespage, name="accessories"),
     path("feedback", views.feedbackpage, name="feedback"),
+    path("feedbacksave", views.feedbackpagesave, name="feedbacksave"),
     path("", include("adminapp.urls")),
 
 

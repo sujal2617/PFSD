@@ -1,0 +1,55 @@
+{% extends 'loginnavbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block 'b1' %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: lavender;
+        margin: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .options {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    .option {
+        margin: 0 20px;
+        padding: 20px 40px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .option:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<body>
+
+<div class="container">
+    <br><br><br><br>
+    <h1>Thanks for your feedback</h1>
+</div>
+</body>
+</html>
+{% endblock %}
